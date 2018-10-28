@@ -45,3 +45,46 @@ requestHybrid({
 //=====>
 hybridschema://hybridapi?callback=hybrid_1446276509894&param=%7B%22data1%22%3A1%2C%22data2%22%3A2%7D
 ~~~
+
+多数情况下这种方式没有问题，但是我们在后续的开发中，为了统一鉴权，将所有的请求全部代理到了Native发出，比如这样：
+
+~~~ javascript
+requestHybrid({
+    tagname: 'post',
+    param: {
+        url: 'http://api.kuai.baidu.com/city/getstartcitys',
+        param1: 'param1',
+        param2: 'param2'
+    },
+    callback: function(data) {
+    }
+});
+~~~
+## JavaScriptCore
+在ios7后，Apple新增了一个JavaScriptCore让Native可以与H5更好的交互（Android早就有了），我们这里主要讨论js如何与Native通信，这里举一个简单的例子：
+① 首先定义一个js方法，这里注意其中调用了一个没有声明的方法：
+~~~ javascript
+function printHello() {
+    //未声明方法
+    print("Hello, World!");
+}
+~~~
+然后，上述未声明方法事实上是Native注入给window对象的：
+~~~ javascript
+NSString *scriptPath = [[NSBundle mainBundle] pathForResource:@"hello" ofType:@"js"];
+NSString *scriptString = [NSString stringWithContentsOfFile:scriptPath encoding:NSUTF8StringEncoding error:nil];
+
+JSContext *context = [[JSContext alloc] init];
+[context evaluateScript:scriptString];
+
+self.context[@"print"] = ^(NSString *text) {
+    NSLog(@"%@", text");
+};
+
+JSValue *function = self.context[@"printHello"];
+[function callWithArguments:@[]];
+~~~
+
+这个样子，JavaScript就可以调用Native的方法了，这里Native需要注意方法注入的时机，一般是一旦载入页面便需要载入变量，这里的交互模型是：
+
+![avatar](https://images2015.cnblogs.com/blog/294743/201605/294743-20160526004714709-342981925.png)
