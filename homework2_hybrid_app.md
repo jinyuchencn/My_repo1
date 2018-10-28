@@ -87,3 +87,18 @@ JSValue *function = self.context[@"printHello"];
 这个样子，JavaScript就可以调用Native的方法了，这里Native需要注意方法注入的时机，一般是一旦载入页面便需要载入变量，这里的交互模型是：
 
 ![avatar](https://images2015.cnblogs.com/blog/294743/201605/294743-20160526004714709-342981925.png)
+
+于是，我们这里只需要将原来底层的通信一块改下即可（Android本身就支持类似的实现，这里暂时不予关注）：
+
+~~~ javascript
+//使用jsCore与native通信
+window.requestNative && requestNative(JSON.stringify(params));
+return;
+//兼容ios6
+var ifr = $('<iframe style="display: none;" src="' + url + '"/>');
+$('body').append(ifr);
+setTimeout(function () {
+    ifr.remove();
+    ifr = null;
+}, 1000)
+~~~
