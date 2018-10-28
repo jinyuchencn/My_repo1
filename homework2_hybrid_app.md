@@ -30,3 +30,18 @@ weixin:// 打开微信
 交互模型图
 
 ![avatar](https://images2015.cnblogs.com/blog/294743/201605/294743-20160525231137303-2013494324.png)
+
+我们在H5获取Native方法时一般是会构造一个这样的请求，使用iframe发出（设置location会有多次请求覆盖的问题）：
+~~~ javascript
+requestHybrid({
+  //创建一个新的webview对话框窗口
+  tagname: 'hybridapi',
+  //请求参数，会被Native使用
+  param: {},
+  //Native处理成功后回调前端的方法
+  callback: function (data) {
+  }
+});
+//=====>
+hybridschema://hybridapi?callback=hybrid_1446276509894&param=%7B%22data1%22%3A1%2C%22data2%22%3A2%7D
+~~~
