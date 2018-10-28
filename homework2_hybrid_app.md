@@ -12,7 +12,7 @@
 
 | 特性 | Web App（网页应用） | Hybrid App（混合应用） | Native App（原生应用）|
 | - | :-: | -: | |
-| Harry Potter | Gryffindor| 90 | |
-| Hermione Granger | Gryffindor | 100 | |
-| Draco Malfoy | Slytherin | 90 ||
+| 开发成本 | 低| 90 | |
+| 维护更新 | 简单 | 100 | |
+| 体验 | 差 | 90 ||
 --------------------- 
