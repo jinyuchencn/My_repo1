@@ -10,9 +10,9 @@
   这个例子很好的说明了Hybrid开发效率高、跨平台、低成本的特点。
 # hybrid的优劣
 
-| Name | Academy | score | 
-| - | :-: | -: | 
-| Harry Potter | Gryffindor| 90 | 
-| Hermione Granger | Gryffindor | 100 | 
-| Draco Malfoy | Slytherin | 90 |
+| 特性 | Web App（网页应用） | Hybrid App（混合应用） | Native App（原生应用）|
+| - | :-: | -: | |
+| Harry Potter | Gryffindor| 90 | |
+| Hermione Granger | Gryffindor | 100 | |
+| Draco Malfoy | Slytherin | 90 ||
 --------------------- 
