@@ -9,10 +9,9 @@
 后来有一天andriod Native的人表示andriod中有一个方法最大树限制，可能一些页面需要内嵌H5的页面，于是Native与H5框架团队牵头做了第一个Hybrid项目，携程第一次出现了一套代码兼容三端的情况。这个开发效率很高，整个团队尝到了甜头，于是乎后续的频道基本都开始了Hybrid开发。
   这个例子很好的说明了Hybrid开发效率高、跨平台、低成本的特点。
 # hybrid的优劣
-
-| 特性 | Web App（网页应用） | Hybrid App（混合应用） | Native App（原生应用）|
-| - | :-: | -: | |
-| 开发成本 | 低| 90 | |
-| 维护更新 | 简单 | 100 | |
-| 体验 | 差 | 90 ||
+| Name | Academy | score | 
+| - | :-: | -: | 
+| Harry Potter | Gryffindor| 90 | 
+| Hermione Granger | Gryffindor | 100 | 
+| Draco Malfoy | Slytherin | 90 |
 --------------------- 
