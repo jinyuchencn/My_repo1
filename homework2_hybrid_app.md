@@ -82,7 +82,6 @@ self.context[@"print"] = ^(NSString *text) {
 };
 
 JSValue *function = self.context[@"printHello"];
-[function callWithArguments:@[]];
 ~~~
 
 这个样子，JavaScript就可以调用Native的方法了，这里Native需要注意方法注入的时机，一般是一旦载入页面便需要载入变量，这里的交互模型是：
