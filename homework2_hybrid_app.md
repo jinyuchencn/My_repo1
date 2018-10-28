@@ -10,7 +10,7 @@
   这个例子很好的说明了Hybrid开发效率高、跨平台、低成本的特点。
 # hybrid的优劣
 | item | Web App | Hybrid App | Native App |
-| - | :-: | -: | :-: |
+| - | :-: | :-: | :-: |
 | 开发成本 | 低| 中 | 高 |
 | 维护更新 | 简单 | 简单 | 复杂 |
 | 体验 | 差 | 中 | 优 |
@@ -18,3 +18,15 @@
 | 安装 | 不需要 | 需要 | 需要 |
 | 跨平台 | 优 | 差 | 差 |
 --------------------- 
+# hybrid的设计与实现
+## Url Schema
+  H5与Native交互的桥梁为Webview，而“联系”的方式可由url schema的方式实现的，在用户安装app后，app可以自定义url schema，并且把自定义的url注册在调度中心， 例如
+  
+ctrip://wireless 打开携程App
+weixin:// 打开微信
+
+事实上Native能捕捉webview发出的一切请求，所以就算这里不是这种协议，Native也能捕捉，这个协议的意义在于可以在浏览器中直接打开APP。
+
+交互模型图
+
+![avatar](https://images2015.cnblogs.com/blog/294743/201605/294743-20160525231137303-2013494324.png)
