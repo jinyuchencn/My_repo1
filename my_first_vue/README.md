@@ -1,6 +1,6 @@
-# my_first_vue
+# my_homework3
 
-> A Vue.js project
+> 新开了一个vue.js，作为homework3的个人项目
 
 ## Build Setup
 
